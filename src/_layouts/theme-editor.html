@@ -1,0 +1,170 @@
+---
+layout: base.html
+---
+
+<h1>Theme Editor</h1>
+
+<section>
+  <form id="theme-editor-form">
+    <h2>Colors</h2>
+    <div class="grid">
+      <div>
+        <label for="color-bg">Background</label>
+        <input type="color" id="color-bg" data-var="--color-bg">
+      </div>
+      <div>
+        <label for="color-bg-main">Main Background</label>
+        <input type="color" id="color-bg-main" data-var="--color-bg-main">
+      </div>
+      <div>
+        <label for="color-bg-secondary">Secondary Background</label>
+        <input type="color" id="color-bg-secondary" data-var="--color-bg-secondary">
+      </div>
+      <div>
+        <label for="color-text">Text Color</label>
+        <input type="color" id="color-text" data-var="--color-text">
+      </div>
+      <div>
+        <label for="color-text-secondary">Secondary Text Color</label>
+        <input type="color" id="color-text-secondary" data-var="--color-text-secondary">
+      </div>
+      <div>
+        <label for="color-link">Link Color</label>
+        <input type="color" id="color-link" data-var="--color-link">
+      </div>
+      <div>
+        <label for="color-secondary">Secondary Color</label>
+        <input type="color" id="color-secondary" data-var="--color-secondary">
+      </div>
+      <div>
+        <label for="color-secondary-accent">Secondary Accent Color</label>
+        <input type="color" id="color-secondary-accent" data-var="--color-secondary-accent">
+      </div>
+    </div>
+    
+    <h2>Typography</h2>
+    <div class="grid">
+      <div>
+        <label for="bunny-fonts">Bunny Fonts Import</label>
+        <input type="text" id="bunny-fonts" placeholder="space-grotesk:400,500,600,700">
+        <small>Format: font-name:weights (comma-separated for multiple fonts)</small>
+      </div>
+      <div>
+        <label for="font-family-heading">Heading Font</label>
+        <input type="text" id="font-family-heading" data-var="--font-family-heading">
+      </div>
+      <div>
+        <label for="font-family-body">Body Font</label>
+        <input type="text" id="font-family-body" data-var="--font-family-body">
+      </div>
+      <div>
+        <label for="line-height">Line Height</label>
+        <input type="number" id="line-height" data-var="--line-height" step="0.1">
+      </div>
+    </div>
+    
+    <h2>Layout</h2>
+    <div class="grid">
+      <div>
+        <label for="border-radius">Border Radius</label>
+        <input type="text" id="border-radius" data-var="--border-radius">
+      </div>
+      <div>
+        <label for="border-width">Border Width</label>
+        <input type="text" id="border-width" placeholder="1px">
+      </div>
+      <div>
+        <label for="border-style">Border Style</label>
+        <select id="border-style">
+          <option value="solid">Solid</option>
+          <option value="dashed">Dashed</option>
+          <option value="dotted">Dotted</option>
+          <option value="double">Double</option>
+        </select>
+      </div>
+      <div>
+        <label for="border-color">Border Color</label>
+        <input type="color" id="border-color">
+      </div>
+      <div>
+        <label for="border">Border</label>
+        <input type="text" id="border" data-var="--border" readonly>
+        <small>Computed from the settings above</small>
+      </div>
+      <div>
+        <label for="box-shadow">Box Shadow</label>
+        <input type="text" id="box-shadow" data-var="--box-shadow">
+      </div>
+      <div>
+        <label for="width-content">Content Width</label>
+        <input type="text" id="width-content" data-var="--width-content">
+      </div>
+      <div>
+        <label for="width-card">Card Width</label>
+        <input type="text" id="width-card" data-var="--width-card">
+      </div>
+      <div>
+        <label for="width-card-medium">Medium Card Width</label>
+        <input type="text" id="width-card-medium" data-var="--width-card-medium">
+      </div>
+      <div>
+        <label for="width-card-wide">Wide Card Width</label>
+        <input type="text" id="width-card-wide" data-var="--width-card-wide">
+      </div>
+    </div>
+    
+    <h2>Effects</h2>
+    <div class="grid">
+      <div>
+        <label for="active-brightness">Active Brightness</label>
+        <input type="number" id="active-brightness" data-var="--active-brightness" step="0.05">
+      </div>
+      <div>
+        <label for="hover-brightness">Hover Brightness</label>
+        <input type="number" id="hover-brightness" data-var="--hover-brightness" step="0.05">
+      </div>
+    </div>
+  </form>
+</section>
+
+<section>
+  <h2>Generated Theme</h2>
+  <textarea id="theme-output" rows="20" readonly style="width: 100%; font-family: monospace;"></textarea>
+  <button id="download-theme">Download Theme</button>
+</section>
+
+<style>
+#theme-editor-form .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+#theme-editor-form div > div {
+  margin-bottom: 1rem;
+}
+
+#theme-editor-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+#theme-editor-form small {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+#bunny-fonts {
+  width: 100%;
+}
+
+#theme-output {
+  margin: 1rem 0;
+}
+</style>
+
+<script src="/assets/js/theme-editor.js" defer></script>
+
+{{ content }}
